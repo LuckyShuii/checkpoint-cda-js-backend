@@ -17,7 +17,7 @@ export class Countries extends BaseEntity {
 
     @Field()
     @Column({unique: true})
-    code: number;
+    code: string;
 
     @Field()
     @Column({unique: true})

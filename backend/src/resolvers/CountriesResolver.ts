@@ -8,7 +8,7 @@ class CountryInput {
   name: string;
 
   @Field()
-  code: number;
+  code: string;
 
   @Field()
   emoji: string
@@ -25,8 +25,8 @@ class CountryResolver {
   }
 
   @Query(() => Countries)
-  async getCountry(@Arg("code") code: number) {
-    return await Countries.findOne({ where: { code } });
+  async getCountry(@Arg("code") code: string) {
+    return await Countries.findOne({ where: { code }, relations: ["continent"] });
   }
 
   @Mutation(() => String)
